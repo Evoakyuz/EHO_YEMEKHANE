@@ -1,0 +1,40 @@
+@Metadata.layer: #CORE
+annotate entity ZEHO_C_REQ_MAPPING
+    with 
+{
+      @UI.facet: [ {
+    id: 'ZEHO_I_REQ_MAPPING', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Company Codes', 
+    position: 1 
+  } ]
+  
+@UI.lineItem: [{ label: 'Bank Code' , position: 10 , hidden: true }]
+@UI.identification: [{ label : 'Bank Code' , position: 10 , hidden: true }]
+Bankcode;
+
+
+@UI.lineItem: [{ label: 'Input Tag' , position: 20  }]
+@UI.identification: [{ label : 'Input Tag' , position: 20  }]
+@EndUserText: {
+    label: 'Input Tag',
+    quickInfo: ''
+}
+InputTag;
+@UI.lineItem: [{ label: 'Input Value' , position: 30  }]
+@UI.identification: [{ label : 'Input Value' , position: 30  }]
+InputValue;
+
+
+@UI.hidden: true
+SingletonID;
+@UI.hidden: true
+LocalLastChangedBy;
+@UI.hidden: true
+LocalLastChangedAt;
+@UI.hidden: true
+LastChangedAt;
+
+    
+}

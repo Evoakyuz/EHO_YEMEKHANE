@@ -1,0 +1,33 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Activity Type",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD"
+  },
+  "ui5AppDetails": {
+    "appId": "com.soapeople.zehoactt"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_77F6643A161EA9FB923CF6720AE4973E2EEB43BD_TM",
+    "semanticObject": "manage",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_77F6643A161EA9FB923CF6720AE4973E2EEB43BD_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Activity Type"
+      }
+    }
+  ]
+}

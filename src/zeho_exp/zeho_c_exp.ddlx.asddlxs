@@ -1,0 +1,91 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Explanation Maintenance',
+    typeNamePlural: 'Explanations',
+    title: {
+      type: #STANDARD
+//      label: 'Explanation'
+    }
+  }
+}
+@Search.searchable: true
+annotate entity ZEHO_C_EXP with
+{
+
+  @UI.facet: [
+
+  { type: #IDENTIFICATION_REFERENCE , id: 'Keys' , label: 'Explanation' , position: 10 ,targetQualifier: 'KEYS' },
+  { type: #COLLECTION , id: 'Collecttion' , label: 'Posting Rules' , position: 20 },
+    { type: #IDENTIFICATION_REFERENCE , id: 'Control' ,   label: 'Accounts'  , position: 10 , parentId: 'Collecttion' , targetQualifier: 'CONTROL' },
+    { type: #IDENTIFICATION_REFERENCE , id: 'Additional' , label: 'Additional Fields' , position: 20 , parentId: 'Collecttion' , targetQualifier: 'ADDITIONAL' }
+
+  ]
+
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.selectionField: [ { position: 10  }  ]
+
+  //  @Search: {
+  //  defaultSearchElement: true,
+  //  fuzzinessThreshold: 0.7,
+  //  ranking: #HIGH
+  //  }
+  @UI.identification: [{ position: 10 , qualifier: 'KEYS' }]
+  Bankcode;
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.selectionField: [ { position: 20 } ]
+  @UI.identification: [{ position: 20 , qualifier: 'KEYS' }]
+  Bukrs;
+  @Search: {
+  defaultSearchElement: true,
+  fuzzinessThreshold: 0.7,
+  ranking: #HIGH
+  }
+  @UI.lineItem: [ { position: 30 } ]
+  @UI.selectionField: [ { position: 30 } ]
+  @UI.identification: [{ position: 30  , qualifier: 'KEYS' }]
+  ActivityType;
+  @Search: {
+  defaultSearchElement: true,
+  fuzzinessThreshold: 0.7,
+  ranking: #HIGH
+  }
+  @UI.lineItem: [ { position: 40 } ]
+  @UI.identification: [{ position: 40 , qualifier: 'KEYS' }]
+  Explanation;
+  @UI.lineItem: [ { position: 50  , cssDefault.width: '5rem'} ]
+  @UI.identification: [{ position: 50  , qualifier: 'KEYS' ,cssDefault.width: '5rem' }]
+  Dc;
+  @UI.lineItem: [ { position: 60 } ]
+  @UI.identification: [{ position: 60  , qualifier: 'CONTROL'}]
+  Blart;
+  @UI.lineItem: [ { position: 70 } ]
+  @UI.identification: [{ position: 70  , qualifier: 'CONTROL' }]
+  Lifnr;
+  @UI.lineItem: [ { position: 80 } ]
+  @UI.identification: [{ position: 80 , qualifier: 'CONTROL'}]
+  Kunnr;
+  @UI.lineItem: [ { position: 90 } ]
+  @UI.identification: [{ position: 90  , qualifier: 'CONTROL'}]
+  SecondglAcc;
+
+  @UI.lineItem: [ { position: 100 } ]
+  @UI.identification: [{ position: 100 , qualifier: 'ADDITIONAL'}]
+  Kostl;
+  @UI.lineItem: [ { position: 110 } ]
+  @UI.identification: [{ position: 110 , qualifier: 'ADDITIONAL'}]
+  Prctr;
+  @UI.lineItem: [ { position: 120 } ]
+  @UI.identification: [{ position: 120 , qualifier: 'ADDITIONAL'}]
+  Gsber;
+  @UI.lineItem: [ { position: 130 } ]
+  @UI.identification: [{ position: 130 , qualifier: 'ADDITIONAL'}]
+  Umskz;
+  @UI.lineItem: [ { position: 140 } ]
+  @UI.identification: [{ position: 140 , qualifier: 'ADDITIONAL'}]
+  Mwskz;
+  @UI.lineItem: [ { position: 150 } ]
+  @UI.identification: [{ position: 150 , qualifier: 'ADDITIONAL'}]
+  CancelProcess;
+
+}

@@ -1,0 +1,39 @@
+managed implementation in class zcl_bp_eho_i_exp unique;
+strict ( 2 );
+//with draft;
+define behavior for ZEHO_I_EXP alias EXP
+persistent table zeho_a_exp
+
+//etag
+//draft table zeho_d_actt
+//etag master Bankcode
+lock master
+authorization master ( instance )
+late numbering
+{
+  create { default function  ; }
+  update;
+  delete;
+  field ( readonly : update ) Bankcode, Bukrs, ActivityType, Explanation, Dc;
+  field ( mandatory : create )  Bankcode, Bukrs, ActivityType, Explanation , Dc;
+  validation validate_record on save { create;  field Bankcode, Bukrs , ActivityType , Explanation , dc; }
+    mapping for zeho_a_exp
+  {
+  Bankcode =  bankcode;
+  Bukrs    =  bukrs;
+  ActivityType = activity_type;
+  Explanation     = explanation;
+  Dc           = dc;
+  Blart        = blart;
+  Lifnr        = lifnr;
+  Kunnr        = kunnr;
+  Secondglacc      = secondgl_acc;
+  Kostl            = kostl;
+  Prctr            = prctr;
+  Gsber            = gsber;
+  Umskz            = umskz;
+  Mwskz            = mwskz;
+  Cancelprocess    = cancel_process;
+  }
+
+}

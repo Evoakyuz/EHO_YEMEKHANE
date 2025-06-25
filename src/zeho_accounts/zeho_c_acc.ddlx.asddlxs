@@ -1,0 +1,124 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Accounts',
+    typeNamePlural: 'Accounts',
+    title: {
+      type: #STANDARD,
+      label: 'Accounts',
+      value: 'Iban'
+    }
+  }
+}
+annotate entity ZEHO_C_ACC with
+{
+  //  @UI.facet: [ {
+  //  id: 'ZEHO_I_ACC',
+  //  purpose: #STANDARD,
+  //  type: #IDENTIFICATION_REFERENCE,
+  //  label: 'Accounts',
+  //  position: 10
+  //  },
+  @UI.facet: [
+  {
+  position: 10 ,
+  purpose: #STANDARD ,
+   label: 'Account Information' ,
+    type : #IDENTIFICATION_REFERENCE ,
+     targetQualifier: 'ACC_INFO'
+   },
+   { position: 20 , label : 'Basic Informations' , type:#IDENTIFICATION_REFERENCE , targetQualifier: 'SERV1'  },
+
+         { position: 30 , label : 'KEYS' , type:#COLLECTION  , targetQualifier: 'SERV2' , id: 'KEYS'   },
+         { position: 10  , type:#IDENTIFICATION_REFERENCE  , targetQualifier: 'KEY1'  , parentId: 'KEYS' },
+         { position: 20  , type:#IDENTIFICATION_REFERENCE  , targetQualifier: 'KEY2'  , parentId: 'KEYS' },
+         { position: 30  , type:#IDENTIFICATION_REFERENCE  , targetQualifier: 'KEY3'  , parentId: 'KEYS' }
+
+  //  {
+  //   position: 20 ,
+  //    purpose: #STANDARD ,
+  //     label: 'Service Information' ,
+  //      type : #IDENTIFICATION_REFERENCE ,
+  //       targetQualifier: 'SERV_INFO'
+  //   }
+   ]
+  @UI.lineItem: [{ label: 'Bank Code' , position: 10 , hidden: true }]
+  Bankcode;
+  @UI.lineItem: [{ label: 'Company Code' , position: 20 , hidden: true }]
+  Bukrs;
+  @UI.lineItem: [{ label: 'Iban' , position: 30 }]
+  @UI.identification: [{ label: 'Iban' , position: 30 ,qualifier: 'ACC_INFO' }]
+  Iban;
+  @UI.lineItem: [{ label: 'Branch' , position: 40 }]
+  @UI.identification:  [{ label: 'Branch' , position: 40  , qualifier: 'ACC_INFO'}]
+  Branch;
+  @UI.lineItem: [{ label: 'Account No' , position: 50 }]
+  @UI.identification: [{ label: 'Account No' , position: 50 , qualifier: 'ACC_INFO' }]
+  AcccountNo;
+  @UI.lineItem: [{ label: 'Currency' , position: 60 }]
+  @UI.identification: [{ label: 'Currency' , position: 60 , qualifier: 'ACC_INFO' }]
+  Waers;
+  @UI.lineItem: [{ label: 'Unique Number' , position: 70 , hidden: true }]
+  @UI.identification: [{ label: 'Unique Number' , position: 70 , qualifier: 'ACC_INFO' }]
+  UniqueNumber;
+  @UI.lineItem: [{ label: 'GL Account' , position: 80  }]
+  @UI.identification: [{ label: 'GL Account' , position: 80 , qualifier: 'ACC_INFO' }]
+  Hkont;
+
+
+  @UI.lineItem: [{ label: 'Service Account no'  , hidden: true }]
+  @UI.identification: [{ label: 'Service Account no' , position: 10  , qualifier: 'SERV1'}]
+  AccNoServ;
+  @UI.lineItem: [{ label: 'Service Account Suffix' , hidden: true }]
+  @UI.identification: [{ label: 'Service Account Suffix' , position: 20 , qualifier: 'SERV1' }]
+  AccSfxServ;
+
+  @UI.lineItem: [{ label: 'Customer No'  , hidden: true }]
+  @UI.identification: [{ label: 'Customer No' , position: 30  , qualifier: 'SERV1' }]
+  CustNo;
+  @UI.lineItem: [{ label: 'Service User'  , hidden: true }]
+  @UI.identification: [{ label: 'Service User' , position: 40  , qualifier: 'SERV1' }]
+  Username;
+  @UI.lineItem: [{ label: 'Service Password' , hidden: true }]
+  @UI.identification: [{ label: 'Service Password' , position: 60 , qualifier: 'SERV1' }]
+  Password;
+  @UI.lineItem: [{ label: 'Begin Date Format' , hidden: true }]
+  @UI.identification: [{ label: 'Begin Date Format' , position: 100 , qualifier: 'SERV1' }]
+  BegdateFormat;
+  @UI.lineItem: [{ label: 'End Date Format' , hidden: true }]
+  @UI.identification: [{ label: 'End Date Format' , position: 100 , qualifier: 'SERV1' }]
+  EnddateFormat;
+
+
+  @UI.lineItem: [{ label: 'Client Id'  , hidden: true ,  cssDefault.width: '10rem' ,inline: false }]
+  @UI.identification: [{ label: 'Client Id' , position: 70 , qualifier: 'KEY1' , cssDefault.width: '140px' }]
+  @UI.multiLineText: true
+
+  ClientId;
+  @UI.lineItem: [{ label: 'Client Secret' , hidden: true ,  cssDefault.width: '40rem' ,inline: false }]
+  @UI.identification: [{ label: 'Client Secret' , position: 80 , qualifier: 'KEY2' , inline: false  }]
+  @UI.multiLineText: true
+  ClientSecret;
+
+  @UI.lineItem: [{ label: 'Api Key' , hidden: true ,  inline: true , cssDefault: {
+      width: '100%'
+  } }]
+  @UI.identification: [{ label: 'Api Key' , position: 90 , qualifier: 'KEY3' , inline: true  , importance: #HIGH ,cssDefault: {
+        width: '100%'
+    }
+    }]
+  @UI.multiLineText: true
+
+  AppKEy;
+
+  @UI.hidden: true
+  SingletonID;
+  @UI.hidden: true
+  LocalLastChangedBy;
+  @UI.hidden: true
+  LocalLastChangedAt;
+  @UI.hidden: true
+  LastChangedAt;
+  /* Associations */
+
+}

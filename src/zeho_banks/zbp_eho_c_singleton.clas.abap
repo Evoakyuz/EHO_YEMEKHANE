@@ -1,0 +1,9 @@
+CLASS zbp_eho_c_singleton DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zeho_c_singleton.
+protected section.
+private section.
+ENDCLASS.
+
+
+
+CLASS ZBP_EHO_C_SINGLETON IMPLEMENTATION.
+ENDCLASS.

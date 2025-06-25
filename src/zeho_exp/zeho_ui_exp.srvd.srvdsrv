@@ -1,0 +1,4 @@
+@EndUserText.label: 'Servis Definition for ZEHO_C_EXP'
+define service ZEHO_UI_EXP {
+  expose ZEHO_C_EXP;
+}

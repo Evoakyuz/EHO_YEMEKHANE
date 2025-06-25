@@ -1,0 +1,46 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Bukrs', 
+    typeNamePlural: 'Bukrs', 
+    title: {
+      type: #STANDARD, 
+      label: 'Comp Codes', 
+      value: 'Bukrs'
+    }
+  }
+}
+
+annotate entity ZEHO_C_COMPS
+with 
+{   
+  @UI.facet: [ {
+    id: 'ZEHO_I_COMPS', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Company', 
+    position: 10 
+  } 
+  
+  ,
+  
+    {
+    id: 'ZEHO_I_ACC', 
+    type: #LINEITEM_REFERENCE, 
+    label: 'Accounts', 
+    position: 20 , 
+    targetElement: '_Acc'
+  }
+  
+  ]
+  
+@UI.lineItem: [{ label: 'Bank Code' , position: 10 }]
+@UI.identification: [{ label : 'Bank Code' , position: 10 }]
+Bankcode;
+@UI.lineItem: [{ label: 'Company Code' , position: 20  }]
+@UI.identification: [{ label : 'Company Code' , position: 20 }]
+Bukrs;
+@UI.lineItem: [{ label: 'Company Description' , position: 30 }]
+@UI.identification: [{ label : 'Company Description' , position: 30 }]
+comp_desc;
+}

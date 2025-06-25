@@ -1,0 +1,120 @@
+unmanaged implementation in class zcl_bp_eho_i_activities unique;
+//strict ( 2 );
+
+//with privileged mode;
+define behavior for ZEHO_I_ACTIVITIES alias Activities
+
+//persistent table <???>
+//persistent table zeho_a_log
+lock master
+authorization master ( instance )
+etag master bukrs
+{
+  //  create;
+  update ( features : instance );
+
+
+  //  delete;
+  field ( readonly )
+  bankcode,
+  bukrs,
+  iban,
+  branch,
+  acccount_no,
+  act_date,
+  act_time,
+  act_no,
+  description,
+  shkzg,
+  amount,
+  waers,
+  activity_type,
+  activity_explanation,
+  sender_iban,
+  sender_vkn,
+  debited_vkn,
+  sender_name,
+  sender_bank,
+  instant_amount,
+  customer_ref;
+  action ( features : instance ) saveActivity;
+  //    action ( features : instance ) saveActivity  result [1] $self;
+  //    result [1..*] $self ;
+
+
+  save ( finalize ) action ( features : instance ) saveActivitySelf result [1] $self;
+  action ( features : instance ) multipleSave;
+  save ( finalize ) action ( features : instance ) multipleSaveSelf result [1] $self;
+  save ( finalize ) action ( features : instance ) reverseActivity;
+  //   action ( features : instance ) reverseActivity;
+  action ( features : instance ) reverseActivitySelf result [1] $self;
+  //  result [1] $self;
+  action ( features : instance ) checkMaintenance;
+  action ( features : instance ) checkMaintenanceSelf result [1] $self;
+  //  result [1] $self;
+
+
+
+  //  association _Mult
+  association _Mult
+  {
+    create ( features : instance );
+  }
+
+
+}
+
+
+define behavior for ZEHO_I_ACTIVITIES_MULT alias _Mult
+etag master bankcode
+lock dependent by Activities
+authorization dependent by Activities
+late numbering
+{
+
+  //  field ( readonly : update )
+  //  bankcode,
+  //  bukrs,
+  //  iban,
+  //  branch,
+  //  acccount_no,
+  //  act_date,
+  //  act_time,
+  //  act_no;
+
+  //  field(  mandatory : create   )
+  //  amount,
+  //  shkzg,
+  //  waers;
+  //  blart,
+  field ( mandatory )
+  amount,
+  shkzg,
+  waers;
+
+  field ( readonly )
+  //  waers,
+  bankcode,
+  bukrs,
+  iban,
+  branch,
+  acccount_no,
+  act_date,
+  act_time,
+  act_no,
+  item_no;
+  //   create ( precheck   );
+  //   create { default function ; }
+  create ( features : global, precheck );
+  update ( features : global, precheck );
+  delete ( features : global, precheck );
+
+
+  association Activities;
+
+
+
+  static function DefaultForCreate result [1] $self;
+
+
+}

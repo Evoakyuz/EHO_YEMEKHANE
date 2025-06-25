@@ -1,0 +1,37 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Job Templete for Service Integration",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "catalogName": "ZEHO_JCE_SERVICE"
+  },
+  "parameters": {
+    "singleValueParameters": [
+      {
+        "name": "P_BDATE",
+        "value": ""
+      },
+      {
+        "name": "P_EDATE",
+        "value": ""
+      }
+    ],
+    "valueRangesParameters": [
+      {
+        "name": "SO_ACC",
+        "valueRanges": []
+      },
+      {
+        "name": "SO_BANKK",
+        "valueRanges": []
+      },
+      {
+        "name": "SO_BUKRS",
+        "valueRanges": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+projection;
+//strict ( 2 );
+
+define behavior for ZEHO_C_ACTIVITIES alias Activities
+{
+    use update;
+    use action multipleSave;
+    use action multipleSaveSelf;
+    use action reverseActivity;
+    use action saveActivity;
+    use action saveActivitySelf;
+    use action reverseActivitySelf;
+//    use action saveActivity2;
+    use action checkMaintenance;
+    use action checkMaintenanceSelf;
+
+     use association _Mult { create;  }
+}
+
+
+define behavior for ZEHO_C_ACTIVITIES_MULT alias _Multi
+{
+
+   use update;
+  use delete;
+  use create;
+
+  use association Activities;
+}

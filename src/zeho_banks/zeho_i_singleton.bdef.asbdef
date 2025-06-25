@@ -1,0 +1,332 @@
+managed implementation in class zbp_eho_i_singleton unique;
+strict;
+with draft;
+define behavior for ZEHO_I_SINGLETON alias Singleton
+draft table zeho_d_singleton
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master ( global )
+{
+  field ( readonly )
+  SingletonID;
+
+  field ( notrigger )
+  SingletonID,
+  LastChangedAtMax;
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+
+  association _Bank { create ( features : instance ); with draft; }
+
+}
+
+define behavior for ZEHO_I_BANK alias Bank
+persistent table zeho_a_bank
+draft table zeho_d_bank
+etag master LocalLastChangedAt
+lock dependent by _Singleton
+authorization dependent by _Singleton
+{
+  field ( mandatory : create )
+  Bankcode;
+
+  field ( readonly )
+  SingletonID,
+  LastChangedAt,
+  LocalLastChangedAt;
+
+  field ( readonly : update )
+  Bankcode;
+
+
+  field ( notrigger )
+  SingletonID,
+  LastChangedAt,
+  LocalLastChangedAt;
+
+  update ( features : global );
+  //  delete ( features : global );
+  delete ( features : instance );
+
+
+  mapping for zeho_a_bank
+    {
+      Bankcode           = Bankcode;
+      bank_desc          = bank_desc;
+      LastChangedAt      = LAST_CHANGED_AT;
+      LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+      LocalLastChangedBy = local_last_changed_by;
+    }
+  association _Singleton { with draft; }
+  association _Comps { create ( features : global ); with draft; }
+  association _Serv { create ( features : global ); with draft; }
+  validation checkvalues on save { create; update; field Bankcode, bank_desc; }
+  association _ReqM { create ( features : instance ); with draft; }
+  association _ResM { create ( features : instance ); with draft; }
+
+}
+
+define behavior for ZEHO_I_COMPS alias Comp
+persistent table zeho_a_comp
+draft table zeho_d_comp
+etag master LocalLastChangedAt
+lock dependent by _Singleton
+authorization dependent by _Singleton
+//with additional save
+
+{
+  field ( mandatory : create )
+  Bukrs;
+  field ( readonly ) Bankcode;
+
+  field ( readonly : update )
+  Bukrs;
+
+  field ( readonly )
+  SingletonID,
+  LastChangedAt,
+  LocalLastChangedAt;
+
+  field ( notrigger )
+  SingletonID,
+  LastChangedAt,
+  LocalLastChangedAt;
+
+  update ( features : global );
+  delete ( features : global );
+
+  mapping for zeho_a_comp
+    {
+      Bankcode           = Bankcode;
+      Bukrs              = Bukrs;
+      comp_desc          = comp_desc;
+      LastChangedAt      = LAST_CHANGED_AT;
+      LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+      LocalLastChangedBy = local_last_changed_by;
+    }
+
+  association _Singleton { with draft; }
+  association _Banks { with draft; }
+  association _Acc { create ( features : global ); with draft; }
+
+}
+
+
+// SERVIcE BEHAVIOUR
+define behavior for ZEHO_I_SERV alias Serv
+persistent table zeho_a_serv
+draft table zeho_d_serv
+etag master LocalLastChangedAt
+lock dependent by _Singleton
+authorization dependent by _Singleton
+//with additional save
+
+{
+  field ( mandatory : create )
+  Bukrs;
+  field ( readonly ) Bankcode;
+
+  field ( readonly : update )
+  Bukrs;
+
+  field ( readonly )
+  SingletonID,
+  LastChangedAt,
+  LocalLastChangedAt;
+
+  field ( notrigger )
+  SingletonID,
+  LastChangedAt,
+  LocalLastChangedAt;
+
+  update ( features : global );
+  delete ( features : global );
+
+  mapping for zeho_a_serv
+    {
+      Bankcode           = Bankcode;
+      Bukrs              = Bukrs;
+      Host               = host;
+      ContentType        = content_type;
+      SoapAction         = soap_action;
+      ServUrl            = serv_url  ;
+      LastChangedAt      = LAST_CHANGED_AT;
+      LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+      LocalLastChangedBy = local_last_changed_by;
+    }
+
+  association _Singleton { with draft; }
+  association _Banks { with draft; }
+
+}
+// SERVIcE BEHAVIOUR
+
+//Request Mapping
+
+define behavior for ZEHO_I_REQ_MAPPING alias Req
+persistent table zeho_a_req_m
+draft table zeho_d_req_m
+etag master LocalLastChangedAt
+lock dependent by _Singleton
+authorization dependent by _Singleton
+//with additional save
+
+{
+  field ( mandatory : create )
+  InputTag;
+  field ( readonly ) Bankcode;
+
+  field ( readonly : update )
+  InputTag;
+
+  field ( readonly )
+  SingletonID,
+  LastChangedAt,
+  LocalLastChangedAt;
+
+  field ( notrigger )
+  SingletonID,
+  LastChangedAt,
+  LocalLastChangedAt;
+
+  update ( features : global );
+  delete ( features : global );
+
+  mapping for zeho_a_req_m
+    {
+      Bankcode           = Bankcode;
+      InputTag           = input_tag;
+      InputValue         = input_value;
+      LastChangedAt      = LAST_CHANGED_AT;
+      LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+      LocalLastChangedBy = local_last_changed_by;
+    }
+
+  association _Singleton { with draft; }
+  association _Banks { with draft; }
+
+}
+
+//Request Mapping
+
+
+
+// Response Mapping
+
+define behavior for ZEHO_I_RESP_MAPPING alias Resp
+persistent table zeho_a_resp_m
+draft table zeho_d_resp_m
+etag master LocalLastChangedAt
+lock dependent by _Singleton
+authorization dependent by _Singleton
+//with additional save
+
+{
+  field ( mandatory : create )
+  RespTag;
+  field ( readonly ) Bankcode;
+
+  field ( readonly : update )
+  RespTag;
+
+  field ( readonly )
+  SingletonID,
+  LastChangedAt,
+  LocalLastChangedAt;
+
+  field ( notrigger )
+  SingletonID,
+  LastChangedAt,
+  LocalLastChangedAt;
+
+  update ( features : global );
+  delete ( features : global );
+
+  mapping for zeho_a_resp_m
+    {
+      Bankcode           = Bankcode;
+      RespTag            = resp_tag;
+      OutputValue        = output_value;
+      LastChangedAt      = LAST_CHANGED_AT;
+      LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+      LocalLastChangedBy = local_last_changed_by;
+    }
+
+  association _Singleton { with draft; }
+  association _Banks { with draft; }
+
+}
+// Response Mapping
+
+//Accounts
+
+define behavior for ZEHO_I_ACC alias ACC
+persistent table zeho_a_acc
+draft table zeho_d_acc
+etag master LocalLastChangedAt
+lock dependent by _Singleton
+authorization dependent by _Singleton
+//with additional save
+{
+  field ( mandatory : create )
+  Iban ,
+   Branch;
+  field ( readonly ) Bankcode , Bukrs;
+
+  field ( readonly : update )
+   Iban ,
+   Branch;
+
+  field ( readonly )
+  SingletonID,
+  LastChangedAt,
+  LocalLastChangedAt;
+
+  field ( notrigger )
+  SingletonID,
+  LastChangedAt,
+  LocalLastChangedAt;
+
+  update ( features : global );
+  delete ( features : global );
+
+  mapping for zeho_a_acc
+    {
+      Bankcode           = Bankcode;
+      bukrs              = bukrs;
+      iban               = iban;
+      branch             = branch;
+      AcccountNo = acccount_no;
+      AccNoServ = acc_no_serv ;
+      AccSfxServ = acc_sfx_serv;
+      waers     = waers;
+      CustNo    = cust_no;
+      Username  = username;
+      Password  = password;
+      ClientId = client_id;
+      ClientSecret = client_secret;
+      AppKEy       = api_key;
+      UniqueNumber = unique_number;
+      Hkont        = hkont;
+      BegdateFormat = begdate_format;
+      EnddateFormat = enddate_format;
+      LastChangedAt      = LAST_CHANGED_AT;
+      LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+      LocalLastChangedBy = local_last_changed_by;
+    }
+
+  association _Singleton { with draft; }
+  association _Comp { with draft; }
+
+}
+
+//Accounts

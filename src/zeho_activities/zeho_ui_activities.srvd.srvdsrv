@@ -1,0 +1,5 @@
+@EndUserText.label: 'Activities Service Definition'
+define service ZEHO_UI_ACTIVITIES {
+  expose ZEHO_C_ACTIVITIES      as Activities;
+  expose ZEHO_C_ACTIVITIES_MULT as Multi;
+}

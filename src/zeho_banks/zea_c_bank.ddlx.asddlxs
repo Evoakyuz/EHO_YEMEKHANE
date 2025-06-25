@@ -1,0 +1,66 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Bankcode', 
+    typeNamePlural: 'Bankcode', 
+    title: {
+      type: #STANDARD, 
+      label: 'Bank codes', 
+      value: 'Bankcode'
+    }
+  }
+}
+annotate entity ZEHO_C_BANK
+    with 
+{   
+    
+    @UI.facet: [ {
+    id: 'ZEHO_I_BANK', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Bank Code', 
+    position: 10 
+   }, 
+  {
+    id: 'ZEHO_I_COMPS', 
+    type: #LINEITEM_REFERENCE, 
+    label: 'Company Codes', 
+    position: 20 , 
+    targetElement: '_Comps'
+  } ,
+   {
+    id: 'ZEHO_I_SERV', 
+    type: #LINEITEM_REFERENCE, 
+    label: 'Service Informations', 
+    position: 30 , 
+    targetElement: '_Serv'
+  } ,
+  
+    {
+    id: 'ZEHO_I_REQ_MAPPING', 
+    type: #LINEITEM_REFERENCE, 
+    label: 'Request Mapping', 
+    position: 40 , 
+    targetElement: '_ReqM'
+    }  , 
+    
+    {
+    id: 'ZEHO_I_RESP_MAPPING', 
+    type: #LINEITEM_REFERENCE, 
+    label: 'Response Mapping', 
+    position: 50 , 
+    targetElement: '_ResM'
+    }  
+  
+  
+   ]
+    @UI.lineItem: [{ label: 'Bankcode' , position: 10 , cssDefault.width: '10rem' }]
+    @UI.identification: [{ label: 'Bankcode' ,  position: 10  }]
+
+    Bankcode;
+    
+    @UI.lineItem: [{ label: 'Bank Description' , position: 20 , cssDefault.width: '10rem' }]
+    @UI.identification: [{ label: 'Bank Description' , position: 20  }]
+    bank_desc;
+
+}

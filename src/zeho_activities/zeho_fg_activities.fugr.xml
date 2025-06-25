@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Activities Function Group</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZEHO_FG_ACTIVITIESTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZEHO_FG_ACTIVITIES</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>ZEHO_FM_MODIFY_CUSTOMIZATION</FUNCNAME>
+     <SHORT_TEXT>Modify Customization Table</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>TT_CUST</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>ZEHO_TT_ACT_CUSTOM</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>CX_SY_ZERODIVIDE</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>CX_SY_ASSIGN_CAST_ERROR</EXCEPTION>
+       <IS_RESUMABLE>X</IS_RESUMABLE>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>TT_CUST</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CX_SY_ZERODIVIDE</PARAMETER>
+       <KIND>X</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CX_SY_ASSIGN_CAST_ERROR</PARAMETER>
+       <KIND>X</KIND>
+      </RSFDO>
+     </DOCUMENTATION>
+     <EXCEPTION_CLASSES>X</EXCEPTION_CLASSES>
+    </item>
+    <item>
+     <FUNCNAME>ZEHO_FM_POST</FUNCNAME>
+     <REMOTE_CALL>R</REMOTE_CALL>
+     <SHORT_TEXT>FI Post Function Module</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>TT_ACT</PARAMETER>
+       <TYP>ZEHO_TT_ACTIVITIES</TYP>
+      </RSIMP>
+     </IMPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>TT_ACT</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

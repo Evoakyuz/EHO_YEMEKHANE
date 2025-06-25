@@ -1,0 +1,46 @@
+unmanaged implementation in class zcl_bp_eho_i_activities_custom unique;
+strict ;//( 1 ); //Uncomment this line in order to enable strict mode 2. The strict mode has two variants (strict(1), strict(2)) and is prerequisite to be future proof regarding syntax and to be able to release your BO.
+
+define behavior for ZEHO_I_ACTIVITIES_CUSTOM alias Activities
+//late numbering
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  //  create;
+//  update( features : instance );
+  //  delete;
+  field ( readonly  )
+//  client,
+  bankcode,
+  bukrs,
+  iban,
+  branch,
+  acccount_no,
+  act_date,
+  act_time,
+  act_no,
+  description,
+  shkzg,
+  amount,
+  waers,
+  activity_type,
+  activity_explanation,
+  sender_iban,
+  sender_vkn,
+  debited_vkn,
+  sender_name,
+  sender_bank,
+  instant_amount,
+  customer_ref;
+
+
+//  action ( features : instance ) saveActivity  result [1] $self;
+//  action ( features : instance ) multipleSave result [1] $self;
+//  action ( features : instance ) reverseActivity result [1] $self;
+
+
+
+
+
+}

@@ -1,0 +1,33 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Activities",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD"
+  },
+  "ui5AppDetails": {
+    "appId": "com.soapeople.zehoactivity"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_5949E7605E96B7562E1E82125471B3017AE2681E_TM",
+    "semanticObject": "manage",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_5949E7605E96B7562E1E82125471B3017AE2681E_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Activities"
+      }
+    }
+  ]
+}

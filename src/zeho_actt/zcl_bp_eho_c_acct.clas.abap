@@ -1,0 +1,9 @@
+CLASS zcl_bp_eho_c_acct DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zeho_c_acct.
+protected section.
+private section.
+ENDCLASS.
+
+
+
+CLASS ZCL_BP_EHO_C_ACCT IMPLEMENTATION.
+ENDCLASS.

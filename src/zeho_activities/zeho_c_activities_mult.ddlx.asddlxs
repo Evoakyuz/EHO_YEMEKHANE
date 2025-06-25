@@ -1,0 +1,70 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Multiple Posting',
+    typeNamePlural: 'Multiple Posting',
+    title: {
+      type: #STANDARD,
+      label: ''
+    }
+  }
+}
+annotate entity ZEHO_C_ACTIVITIES_MULT with
+{
+  @UI.facet: [
+  { type: #COLLECTION , id: 'Collecttion' , label: 'Activity Info' , position: 10 },
+  { type: #IDENTIFICATION_REFERENCE , id: 'Control' ,   label: 'Main Fields'  , parentId: 'Collecttion' ,  position: 10 , targetQualifier: 'OBLIGATORY' },
+  { type: #IDENTIFICATION_REFERENCE , id: 'Additional' , label: 'Additional Fields' , parentId: 'Collecttion' , position: 20  , targetQualifier: 'ADDITIONAL' }
+  //  { type: #COLLECTION , id: 'Posting' , label: 'Posting Information' , position: 20 },
+  //  { type: #IDENTIFICATION_REFERENCE , id: 'Accounting'   , label: 'Accounting Information'  , position: 10 , parentId: 'Posting' , targetQualifier: 'ACCOUNTING' },
+  //  { type: #IDENTIFICATION_REFERENCE , id: 'PostingInfo'  , label: 'Posting Info' , position: 20 , parentId: 'Posting' , targetQualifier: 'POSTING' }
+  ]
+
+  @UI.lineItem         : [{ position: 20  , label: 'Debit/Credit'}]
+  @UI.identification: [{ position: 20 , qualifier: 'OBLIGATORY' }]
+  shkzg;
+  @UI.lineItem         : [{ position: 30  }]
+  @UI.identification: [{ position: 30 , qualifier: 'OBLIGATORY'  }]
+  amount;
+
+  @UI.lineItem         : [{  hidden: true }]
+  @Consumption.filter.hidden: true
+  @UI.identification: [{ position: 40 , qualifier: 'OBLIGATORY' }]
+  waers;
+  @UI.lineItem         : [{ position: 50 }]
+  @UI.identification: [{ position: 50 , qualifier: 'OBLIGATORY' }]
+  lifnr;
+  @UI.lineItem         : [{ position: 60 }]
+  @UI.identification: [{ position: 60 , qualifier: 'OBLIGATORY' }]
+  kunnr;
+  @UI.lineItem         : [{ position: 70 }]
+  @UI.identification: [{ position: 70 , qualifier: 'OBLIGATORY' }]
+  secondgl_acc;
+
+  @UI.lineItem         : [{ position: 80 }]
+  @UI.identification: [{ position: 80 , qualifier: 'OBLIGATORY' }]
+  blart;
+
+  //  name1;
+
+  @UI.lineItem         : [{ position: 90 }]
+  @UI.identification: [{ position: 90 , qualifier: 'ADDITIONAL' }]
+  kostl;
+  @UI.lineItem         : [{ position: 100 }]
+  @UI.identification: [{ position: 100 , qualifier: 'ADDITIONAL' }]
+  prctr;
+  @UI.lineItem         : [{ position: 110 }]
+  @UI.identification: [{ position: 110 , qualifier: 'ADDITIONAL' }]
+  gsber;
+  @UI.lineItem         : [{ position: 120 }]
+  @UI.identification: [{ position: 120 , qualifier: 'ADDITIONAL' }]
+  umskz;
+  @UI.lineItem         : [{ position: 130 }]
+  @UI.identification: [{ position: 130 , qualifier: 'ADDITIONAL' }]
+  mwskz;
+////  //  cancel_process;
+////  //  customization_type;
+////  //  affacted_priority;
+////  /* Associations */
+////  //  _Activities;
+}

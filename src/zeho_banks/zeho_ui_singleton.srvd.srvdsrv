@@ -1,0 +1,11 @@
+@ObjectModel.leadingEntity.name: 'ZEHO_C_SINGLETON'
+@EndUserText.label: 'Service Definion for EHO Singleton'
+define service ZEHO_UI_SINGLETON {
+  expose ZEHO_C_SINGLETON    as Singleton;
+  expose ZEHO_C_BANK         as Bank;
+  expose ZEHO_C_COMPS        as Comp;
+  expose ZEHO_C_SERV         as Serv;
+  expose ZEHO_C_REQ_MAPPING  as Req;
+  expose ZEHO_C_RESP_MAPPING as Resp;
+  expose ZEHO_C_ACC          as Acc;
+}

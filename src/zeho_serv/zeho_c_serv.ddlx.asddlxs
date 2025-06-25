@@ -1,0 +1,86 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Company Code ',
+    typeNamePlural: 'Services',
+    title: {
+      type: #STANDARD,
+      label: 'Service Informations',
+      value: 'Bukrs'
+    }
+  }
+}
+annotate entity ZEHO_C_SERV with
+{
+  @UI.facet: [ {
+    id: 'ZEHO_I_SERV',
+    purpose: #STANDARD,
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'Service Information',
+    position: 1 ,
+    targetQualifier: 'FIRST'
+  },
+    { position: 20 , purpose: #HEADER , label: 'Bank/Comp' , type : #DATAPOINT_REFERENCE , targetQualifier: '_HDR_1'},
+    { position: 30 , purpose: #HEADER , label: 'Comp' , type : #DATAPOINT_REFERENCE , targetQualifier: '_HDR_2'},
+    {
+      id: '_URL',
+    purpose: #STANDARD,
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'URL Information',
+    position: 40,
+     targetQualifier: 'SECOND'
+  //    type: #ADDRESS_REFERENCE
+  }
+   ]
+
+  @UI.lineItem: [{ label: 'Bank Code' , position: 10 }]
+  //  @UI.identification: [{ label : 'Bank Code' , position: 10 }]
+  @UI.dataPoint: {
+  qualifier: '_HDR_1',
+  title: 'Bank Code',
+  description: 'Bank Code'
+
+  }
+  Bankcode;
+  @UI.lineItem: [{ label: 'Company Code' , position: 20  }]
+  //  @UI.identification: [{ label : 'Company Code' , position: 20 }]
+
+  @UI.dataPoint: {
+  qualifier: '_HDR_2',
+  title: 'Comp Code',
+  description: 'Comp Code'
+  }
+  Bukrs;
+
+  @UI.lineItem: [{ label: 'Host' , position: 30  }]
+  @UI.identification: [{ label : 'Host' , position: 30 , qualifier: 'FIRST' }]
+  Host;
+
+  @UI.lineItem: [{ label: 'Content Type' , position: 40  }]
+  @UI.identification: [{ label : 'Content Type' , position: 40 , qualifier: 'FIRST' }]
+  ContentType;
+
+  @UI.lineItem: [{ label: 'Soap Action' , position: 50  }]
+  @UI.identification: [{ label : 'Soap Action' , position: 50 , qualifier: 'FIRST' }]
+  SoapAction;
+
+  @UI.lineItem: [{ label: 'Service URL' , position: 60 , cssDefault.width: '30rem' , inline: true    }]
+  @UI.identification: [{  label : 'Service URL' , position: 60   , qualifier: 'SECOND' , cssDefault.width: '30rem'
+      }]
+  @UI.multiLineText: true
+  
+  ServUrl;
+
+
+  @UI.hidden: true
+  SingletonID;
+  @UI.hidden: true
+  LocalLastChangedBy;
+  @UI.hidden: true
+  LocalLastChangedAt;
+  @UI.hidden: true
+  LastChangedAt;
+  /* Associations */
+
+
+}

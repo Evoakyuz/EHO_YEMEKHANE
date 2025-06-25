@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZEHO_MSG</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>Message Class EHO</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZEHO_MSG</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Record Already Exists &amp;1 &amp;2 &amp;3 &amp;4</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZEHO_MSG</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Unique Maintenance is wrong for &amp;1 in table ZEHO_A_ACC</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZEHO_MSG</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Service not found for Bank :</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZEHO_MSG</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Request mapping not found !</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZEHO_MSG</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Response Mapping not found !</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZEHO_MSG</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Non Uique mapping not developed for &amp;1 &amp;2 &amp;3</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZEHO_MSG</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>Select option &amp;1 is allowd only for character-like data types</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZEHO_MSG</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>Badi implementation is missing</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZEHO_MSG</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>Posting started</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZEHO_MSG</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>Document: &amp;1 created in year &amp;2 for company &amp;3</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZEHO_MSG</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>You have to fill one of the fields Customer / Supplier / Offsetting acc</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZEHO_MSG</ARBGB>
+     <MSGNR>012</MSGNR>
+     <TEXT>Amount cannot be zero !</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZEHO_MSG</ARBGB>
+     <MSGNR>013</MSGNR>
+     <TEXT>New item created succesfully</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZEHO_MSG</ARBGB>
+     <MSGNR>014</MSGNR>
+     <TEXT>Activity already posted or canceled!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZEHO_MSG</ARBGB>
+     <MSGNR>015</MSGNR>
+     <TEXT>Item&apos;s total amount should be 0.00! Result is : &amp;1</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZEHO_MSG</ARBGB>
+     <MSGNR>016</MSGNR>
+     <TEXT>Document type is missing!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZEHO_MSG</ARBGB>
+     <MSGNR>017</MSGNR>
+     <TEXT>Item not found!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZEHO_MSG</ARBGB>
+     <MSGNR>018</MSGNR>
+     <TEXT>Update Completed</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZEHO_MSG</ARBGB>
+     <MSGNR>019</MSGNR>
+     <TEXT>Items have different currencies!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZEHO_MSG</ARBGB>
+     <MSGNR>020</MSGNR>
+     <TEXT>Please fill currency field before posting!</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

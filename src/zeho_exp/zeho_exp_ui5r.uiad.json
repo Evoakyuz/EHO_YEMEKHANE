@@ -1,0 +1,33 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Explanation Maintenance",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD"
+  },
+  "ui5AppDetails": {
+    "appId": "com.soapeople.zehoexp"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_DD1540428D8FF1262540560268C1D8844717B13E_TM",
+    "semanticObject": "zeho_exp",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_DD1540428D8FF1262540560268C1D8844717B13E_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Explanation Maintenance"
+      }
+    }
+  ]
+}

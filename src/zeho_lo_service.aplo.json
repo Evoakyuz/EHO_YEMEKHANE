@@ -1,0 +1,14 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Log Object For Service Integration job",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "subobjects": [
+    {
+      "name": "ZEHO_SO_SERVICE",
+      "description": "Service Sub Object"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Activity Type Maintenance",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD"
+  },
+  "ui5AppDetails": {
+    "appId": "com.soapeople.zehoactt"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_73B9054E5B5EE35547FBF51B00CD2F81495CD872_TM",
+    "semanticObject": "zeho_actt",
+    "action": "display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_73B9054E5B5EE35547FBF51B00CD2F81495CD872_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Activity Type Maintenance"
+      }
+    }
+  ]
+}

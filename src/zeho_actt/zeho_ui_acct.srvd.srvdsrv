@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZEHO_C_ACCT'
+@EndUserText.label: 'Servis Definition for ZEHO_C_ACCT'
+define service ZEHO_UI_ACCT {
+  expose ZEHO_C_ACCT;
+}

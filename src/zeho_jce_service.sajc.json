@@ -1,0 +1,30 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Job Catalog Entry for service",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "className": "ZEHO_CL_SERVICE_JOB"
+  },
+  "parameters": [
+    {
+      "name": "SO_BUKRS"
+    },
+    {
+      "name": "SO_BANKK"
+    },
+    {
+      "name": "SO_ACC"
+    },
+    {
+      "name": "P_BDATE",
+      "mandatory": true
+    },
+    {
+      "name": "P_EDATE",
+      "mandatory": true
+    }
+  ]
+}

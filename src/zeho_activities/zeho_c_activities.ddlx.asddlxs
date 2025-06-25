@@ -1,0 +1,260 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Activities',
+    typeNamePlural: 'Activities',
+    title: {
+      type: #STANDARD,
+      label: ''
+    }
+  }
+}
+annotate entity ZEHO_C_ACTIVITIES with
+{
+  @UI.facet: [
+  { type: #COLLECTION , id: 'Collecttion' , label: 'Activity Info' , position: 10 },
+  { type: #IDENTIFICATION_REFERENCE , id: 'Control' ,   label: 'Activity Information'  , parentId: 'Collecttion' ,  position: 10 , targetQualifier: 'KEYS' },
+  { type: #IDENTIFICATION_REFERENCE , id: 'Additional' , label: 'Sender Information' , parentId: 'Collecttion' , position: 20  , targetQualifier: 'SENDER' },
+  { type: #COLLECTION , id: 'Posting' , label: 'Posting Information' , position: 20 },
+  { type: #IDENTIFICATION_REFERENCE , id: 'Accounting'   , label: 'Accounting Information'  , position: 10 , parentId: 'Posting' , targetQualifier: 'ACCOUNTING' },
+  { type: #IDENTIFICATION_REFERENCE , id: 'PostingInfo'  , label: 'Posting Info' , position: 20 , parentId: 'Posting' , targetQualifier: 'POSTING' },
+  { type: #LINEITEM_REFERENCE  , label: 'Multiple Posting' , position: 30 ,
+   targetElement: '_Mult' }
+  ]
+  ////  @UI.hidden           : true
+  ////  client;
+
+  //  @UI.lineItem         : [{ position: 9 , importance: #HIGH , targetElement: 'StatusText' ,  criticality: 'Status' }]
+  //  StatusText;
+
+  @Consumption.filter.hidden: true
+  @UI.lineItem         : [{ position: 9  ,  criticality: 'Status'  ,importance: #HIGH , label: 'Status'}]
+  StatusText;
+
+
+  @Consumption.valueHelpDefinition: [{ entity: {
+    name: 'ZEHO_VH_BANKCODES',
+    element: 'Bankcode'
+    }
+     }]
+  @UI.selectionField: [ { position: 10  }  ]
+  @Consumption.filter.multipleSelections: true
+  @Consumption.filter:{ mandatory:true }
+
+
+  @UI.lineItem         : [{ position: 10 }]
+  @UI.identification: [{ position: 10 , qualifier: 'KEYS' }]
+
+  bankcode;
+  @Consumption.valueHelpDefinition: [{ entity:
+     {
+     name: 'ZEHO_VH_BUKRS',
+     element: 'Bukrs'
+     }
+     }]
+
+  @UI.selectionField: [ { position: 20  }  ]
+  @Consumption.filter.multipleSelections: false
+  @Consumption.filter.selectionType: #SINGLE
+  @Consumption.filter:{ mandatory:true }
+  @UI.lineItem         : [{ position: 20 }]
+  @UI.identification: [{ position: 20 , qualifier: 'KEYS' }]
+
+  bukrs;
+  @UI.lineItem         : [{ position: 30 , hidden: true }]
+  @Consumption.filter.hidden: true
+  @UI.identification: [{ position: 30 , qualifier: 'KEYS' }]
+  iban;
+  @UI.lineItem         : [{ position: 40 , hidden: true } ]
+  @Consumption.filter.hidden: true
+  @UI.identification: [{ position: 40 , qualifier: 'KEYS' }]
+  branch;
+  @UI.lineItem         : [{ position: 50  , cssDefault.width: '10rem' }]
+  @Consumption.filter.hidden: true
+  @UI.identification: [{ position: 50 , qualifier: 'KEYS' }]
+  acccount_no;
+  @UI.lineItem         : [{ position: 60 , hidden: true }]
+  @UI.selectionField: [ { position: 30  }  ]
+
+  @Consumption.filter: {
+    mandatory: true,
+    selectionType: #INTERVAL ,
+
+    multipleSelections: false
+
+  }
+  @UI.identification: [{ position: 60 , qualifier: 'KEYS' }]
+  act_date;
+  @UI.lineItem         : [{ position: 70 , hidden: true }]
+  @Consumption.filter.hidden: true
+  @UI.identification: [{ position: 70 , qualifier: 'KEYS' }]
+  act_time;
+  @UI.lineItem         : [{ position: 80 , hidden: true }]
+  @Consumption.filter.hidden: true
+  @UI.identification: [{ position: 80 , qualifier: 'KEYS' , hidden: true  }]
+  act_no;
+  @UI.lineItem         : [{ position: 90  }]
+  @Consumption.filter.hidden: true
+  @UI.identification: [{ position: 90 , qualifier: 'KEYS' }]
+  description;
+  @UI.lineItem         : [{ position: 100 }]
+  @Consumption.filter.hidden: true
+  @UI.identification: [{ position: 100 , qualifier: 'KEYS' }]
+  shkzg;
+  @UI.lineItem         : [{ position: 110  }]
+  @Consumption.filter.hidden: true
+  @UI.identification: [{ position: 110 , qualifier: 'KEYS'  }]
+
+  amount;
+  @UI.lineItem         : [{ position: 120 , hidden: true }]
+  @Consumption.filter.hidden: true
+  @UI.identification: [{ position: 120 , qualifier: 'KEYS' }]
+
+  instant_amount;
+  @Consumption.valueHelpDefinition: [{  entity: {
+      name: 'I_Currency',
+      element: 'Currency'
+  } }]
+  @UI.lineItem         : [{ position: 130 , hidden: true }]
+  @Consumption.filter.hidden: true
+
+
+  @UI.identification: [{ position: 130 , qualifier: 'KEYS' }]
+  waers;
+
+  @UI.lineItem         : [{ position: 140  }]
+  @Consumption.filter.hidden: true
+  @UI.identification: [{ position: 140 , qualifier: 'KEYS' }]
+  activity_type;
+  @UI.lineItem         : [{ position: 150 , hidden: true}]
+  @Consumption.filter.hidden: true
+  @UI.identification: [{ position: 150 , qualifier: 'KEYS' }]
+  activity_explanation;
+  @Consumption.filter.hidden: true
+  @UI.lineItem         : [{ position: 151 }]
+  @UI.identification: [{ position: 151 , qualifier: 'KEYS' }]
+  hkont;
+
+  @UI.lineItem         : [{ position: 160 , hidden: true }]
+  @Consumption.filter.hidden: true
+  @UI.identification: [{ position: 160 , qualifier: 'SENDER' }]
+  sender_iban;
+  @UI.lineItem         : [{ position: 170 , hidden: true }]
+  @Consumption.filter.hidden: true
+  @UI.identification: [{ position: 170 , qualifier: 'SENDER' }]
+  sender_vkn;
+  @UI.lineItem         : [{ position: 180 , hidden: true }]
+  @Consumption.filter.hidden: true
+  @UI.identification: [{ position: 180 , qualifier: 'SENDER' }]
+  debited_vkn;
+  @UI.lineItem         : [{ position: 190 , hidden: true }]
+  @Consumption.filter.hidden: true
+  @UI.identification: [{ position: 190 , qualifier: 'SENDER' }]
+  sender_name;
+  @UI.lineItem         : [{ position: 200 , hidden: true }]
+  @Consumption.filter.hidden: true
+  @UI.identification: [{ position: 200 , qualifier: 'SENDER' }]
+  sender_bank;
+  @UI.lineItem         : [{ position: 210 , hidden: true }]
+  @Consumption.filter.hidden: true
+  @UI.identification: [{ position: 210 , qualifier: 'SENDER' }]
+  customer_ref;
+  @UI.lineItem         : [{ position: 220  ,
+   type:#WITH_URL ,
+
+            url:'DocumentDisplayUrl' ,
+
+            importance: #HIGH  , navigationAvailable: true   }]
+  @Consumption.filter.hidden: true
+  @UI.identification: [{ position: 220 , qualifier: 'POSTING' , type:#WITH_URL ,
+  //   criticality: 'Status' ,
+     url:'DocumentDisplayUrl' , importance: #HIGH  }]
+
+  belnr;
+  @UI.lineItem         : [{ position: 230 }]
+  @Consumption.filter.hidden: true
+  @UI.identification: [{ position: 230 , qualifier: 'POSTING' }]
+  gjahr;
+  @UI.lineItem         : [{ position: 240  }]
+  @Consumption.filter.hidden: true
+  @UI.identification: [{ position: 240 , qualifier: 'POSTING' }]
+  blart;
+  @UI.lineItem         : [{ position: 250  }]
+  @Consumption.filter.hidden: true
+  @UI.identification: [{ position: 250 , qualifier: 'ACCOUNTING' }]
+  lifnr;
+  @UI.lineItem         : [{ position: 260  }]
+  @Consumption.filter.hidden: true
+  @UI.identification: [{ position: 260 , qualifier: 'ACCOUNTING' }]
+  kunnr;
+  @UI.lineItem         : [{  hidden: true }]
+  @Consumption.filter.hidden: true
+  @UI.identification: [{  hidden: true }]
+  name1;
+
+  @UI.lineItem         : [{ position: 270 ,  label: 'Offsetting Acc.' }]
+  @Consumption.filter.hidden: true
+  @UI.identification: [{ position: 270 , qualifier: 'ACCOUNTING' }]
+  secondgl_acc;
+  @UI.lineItem         : [{ position: 280 , hidden: true }]
+  @Consumption.filter.hidden: true
+  @UI.identification: [{ position: 280 , qualifier: 'ACCOUNTING' }]
+  kostl;
+  @UI.lineItem         : [{ position: 290 , hidden: true }]
+  @Consumption.filter.hidden: true
+  @UI.identification: [{ position: 290 , qualifier: 'ACCOUNTING' }]
+  prctr;
+  @UI.lineItem         : [{ position: 300 , hidden: true }]
+  @Consumption.filter.hidden: true
+  @UI.identification: [{ position: 300 , qualifier: 'ACCOUNTING' }]
+  gsber;
+  @UI.lineItem         : [{ position: 310 , hidden: true }]
+  @Consumption.filter.hidden: true
+  @UI.identification: [{ position: 310 , qualifier: 'ACCOUNTING' }]
+  umskz;
+  @UI.lineItem         : [{ position: 320 , hidden: true }]
+  @Consumption.filter.hidden: true
+  @UI.identification: [{ position: 320 , qualifier: 'ACCOUNTING' }]
+  mwskz;
+  @UI.lineItem         : [{ position: 330 , hidden: true }]
+  @Consumption.filter.hidden: true
+  @UI.identification: [{ position: 330 , qualifier: 'POSTING' }]
+  cancel_process;
+  @UI.lineItem         : [{  hidden: true }]
+  @Consumption.filter.hidden: true
+  @UI.identification: [{  hidden: true }]
+  customization_type;
+  @UI.lineItem         : [{  hidden: true }]
+  @Consumption.filter.hidden: true
+  @UI.identification: [{  hidden: true }]
+  @UI: {
+  lineItem:       [ { position: 340, importance: #HIGH }
+                   ,{ type: #FOR_ACTION, dataAction: 'checkMaintenance', label: 'Check Maintenance'  , position: 10  , invocationGrouping: #CHANGE_SET}
+                   ,{ type: #FOR_ACTION, dataAction: 'saveActivity', label: 'Post'  , position: 20 }
+                   ,{ type: #FOR_ACTION, dataAction: 'multipleSave', label: 'Multiple Post' , position: 30 }
+                   ,{ type: #FOR_ACTION, dataAction: 'reverseActivity', label: 'Reverse Document' , position: 40 }
+  //                   ,{ type: #FOR_ACTION, dataAction: 'saveActivity2', label: 'Post2' , position: 50 }
+      ],
+  identification: [ { position: 340 }
+                  ,{ type: #FOR_ACTION, dataAction: 'checkMaintenanceSelf', label: 'Check Maintenance'  , position: 10 }
+                  ,{ type: #FOR_ACTION, dataAction: 'saveActivitySelf', label: 'Post'  , position: 20 }
+                   ,{ type: #FOR_ACTION, dataAction: 'multipleSaveSelf', label: 'Multiple Post' , position: 30 }
+                   ,{ type: #FOR_ACTION, dataAction: 'reverseActivitySelf', label: 'Reverse Document', position: 40 }
+  //                   ,{ type: #FOR_ACTION, dataAction: 'saveActivity2', label: 'Post2', position: 50 }
+      ],
+  textArrangement: #TEXT_ONLY
+  }
+  affacted_priority;
+
+
+  @Consumption.filter.hidden: true
+  local_amount;
+
+
+  @UI.lineItem: [{ position: 350 , hidden: true }]
+  @UI.identification: [{  hidden: true }]
+  Status;
+  //  _Mult;
+
+
+}

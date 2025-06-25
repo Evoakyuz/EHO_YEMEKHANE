@@ -1,0 +1,35 @@
+@Metadata.layer: #CORE
+annotate entity ZEHO_C_RESP_MAPPING
+    with 
+{
+        @UI.facet: [ {
+    id: 'ZEHO_I_RESP_MAPPING', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Company Codes', 
+    position: 1 
+  } ]
+  
+@UI.lineItem: [{ label: 'Bank Code' , position: 10 , hidden: true }]
+@UI.identification: [{ label : 'Bank Code' , position: 10 , hidden: true }]
+Bankcode;
+
+
+@UI.lineItem: [{ label: 'Response Tag' , position: 20  }]
+@UI.identification: [{ label : 'Response Tag' , position: 20  }]
+RespTag;
+@UI.lineItem: [{ label: 'Response Field' , position: 30  }]
+@UI.identification: [{ label : 'Response Field' , position: 30  }]
+OutputValue;
+
+
+@UI.hidden: true
+SingletonID;
+@UI.hidden: true
+LocalLastChangedBy;
+@UI.hidden: true
+LocalLastChangedAt;
+@UI.hidden: true
+LastChangedAt;
+    
+}
